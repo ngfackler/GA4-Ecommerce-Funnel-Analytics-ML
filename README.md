@@ -112,7 +112,10 @@ The workflow also includes:
 - The reduced gradient boosting model performed nearly identically to the full model, suggesting that many behavioral features were redundant.
 - A threshold of 0.8 produced the strongest F1 score among the tested thresholds, creating a smaller and more targeted re-engagement audience.
 - `days_since_last_seen` was the strongest predictor by permutation importance.
-- Users seen more recently, users active across multiple days, and users with higher total event counts were more likely to return in January.
+- The binned return-rate plots showed clear directional relationships for the top features:
+  - `days_since_last_seen` was inversely related to January return rate. Users seen most recently before January had the highest return rate, while users whose last activity was farther in the past were much less likely to return.
+  - `customer_span_days` was positively related to return behavior. Users observed across more than one day in the November-December window had a much higher January return rate than users observed on only one day.
+  - `total_events` was positively related to return behavior. Users with more total events during the observation window had progressively higher January return rates, suggesting that stronger engagement intensity is associated with future re-engagement.
 - The model is best interpreted as a re-engagement audience scoring tool rather than a high-confidence individual prediction model.
 
 ## Setup Instructions
@@ -146,4 +149,3 @@ To recreate the funnel drop-off chart, open:
 ```text
 notebook/funnel_plot.ipynb
 ```
-
