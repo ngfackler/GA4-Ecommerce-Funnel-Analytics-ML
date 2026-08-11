@@ -109,10 +109,11 @@ The workflow also includes:
 
 ### Returning Customer Model
 
-- Gradient boosting produced the strongest overall ranking performance.
-- The reduced gradient boosting model performed nearly identically to the full model, suggesting that many behavioral features were redundant.
-- A threshold of 0.8 produced the strongest F1 score among the tested thresholds, creating a smaller and more targeted re-engagement audience.
-- `days_since_last_seen` was the strongest predictor by permutation importance.
+- Gradient boosting produced the strongest overall ranking performance among the models tested, with ROC AUC of 0.83 and PR AUC of 0.17 on the held-out test set.
+- Correlation analysis showed that many behavioral variables were redundant. A reduced gradient boosting model using fewer features performed nearly identically to the full model, with ROC AUC of 0.83 and PR AUC of 0.17.
+- Threshold tuning was performed using out-of-fold training predictions rather than the test set. A threshold of 0.8 produced the strongest F1 score among the tested thresholds for the reduced model.
+- On the held-out test set, the selected 0.8 threshold identified 41% of returning users with 18% precision and selected 1,659 users as likely returners.
+- `days_since_last_seen` was the strongest predictor by permutation importance, followed by `customer_span_days`, `total_events`, `session_count`, and `max_session_duration_seconds`.
 - The binned return-rate plots showed clear directional relationships for the top features:
   - `days_since_last_seen` was inversely related to January return rate. Users seen most recently before January had the highest return rate, while users whose last activity was farther in the past were much less likely to return.
   - `customer_span_days` was positively related to return behavior. Users observed across more than one day in the November-December window had a much higher January return rate than users observed on only one day.
