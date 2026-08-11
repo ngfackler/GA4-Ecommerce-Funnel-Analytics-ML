@@ -34,7 +34,8 @@ GA4-Ecommerce-Funnel-Analytics-ML/
 ├── README.md
 ├── requirements.txt
 ├── figures/
-│   └── ordered_funnel_dropoff.png
+│   ├── ordered_funnel_dropoff.png
+│   └── permutation_importance.png
 ├── notebook/
 │   ├── funnel_plot.ipynb
 │   └── returning_customer_model.ipynb
@@ -117,6 +118,8 @@ The workflow also includes:
   - `customer_span_days` was positively related to return behavior. Users observed across more than one day in the November-December window had a much higher January return rate than users observed on only one day.
   - `total_events` was positively related to return behavior. Users with more total events during the observation window had progressively higher January return rates, suggesting that stronger engagement intensity is associated with future re-engagement.
 - The model is best interpreted as a re-engagement audience scoring tool rather than a high-confidence individual prediction model.
+
+![Permutation Importance](figures/permutation_importance.png)
 
 ## Setup Instructions
 
